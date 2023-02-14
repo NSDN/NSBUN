@@ -152,7 +152,7 @@ if (serial.IsOpen)
                             chksum += buff[j];
                         if ((byte)(chksum & 0xFF) == buff[^2] && (byte)(chksum >> 8) == buff[^1])
                         {
-                            byteBuff.AddRange(buff);
+                            byteBuff.AddRange(buff[..^2]);
                             continue;
                         }
                     }
