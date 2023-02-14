@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Burner": {
+      "commandName": "Project",
+      "commandLineArgs": "-D COM11 dump.bin"
+    }
+  }
+}

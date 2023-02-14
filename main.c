@@ -143,6 +143,26 @@ void main() {
                         uart0Write("GO!\n");
                     }
                 }
+                break;
+            case 0xAB:
+                if (uart0Gets((uint8_t*) &param, 2)) {
+                    if (param == 0x55AA) {
+                        uart0Write("GO!\n");
+                        param = 0;
+                        for (uint16_t i = 0; i < ROM_BUFFER_SIZ; i++) {
+                            if (addr + i < XDATA_XCS1_SIZE) {
+                                uart0Send(ROM_CHIP[addr + i]);
+                                param += ROM_CHIP[addr + i];
+                            } else {
+                                uart0Send(0x00);
+                                param += 0x00;
+                            }
+                        }
+                        uart0Send(param & 0xFF);
+                        uart0Send(param >> 8);
+                    }
+                }
+                break;
             default:
                 delay(10);
                 break;
