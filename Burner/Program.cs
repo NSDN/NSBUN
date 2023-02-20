@@ -2,7 +2,7 @@
 
 const int BLK_SIZ = 1024;
 
-if (args.Length < 2 || args.Length > 4)
+if (args.Length < 2 || args.Length > 5)
 {
     Console.WriteLine("NyaSama Burner v1.0\n");
     Console.WriteLine("Usage: Burner [-F] [-E|-D] PORT [ADDR[:SIZE]] binfile");
@@ -43,7 +43,7 @@ else if (arr[0].ToLower() == "-d")
 }
 
 string port = arr[0];
-string file = arr[arr.Length == 2 ? 1 : 2];
+string file = arr[^1];
 int addr, size;
 if (arr.Length == 2)
 {

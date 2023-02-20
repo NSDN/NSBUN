@@ -2,7 +2,7 @@
   "profiles": {
     "Burner": {
       "commandName": "Project",
-      "commandLineArgs": "-D COM11 dump.bin"
+      "commandLineArgs": "-F -E COM3 0x0000:0x8000 rom.bin"
     }
   }
 }
